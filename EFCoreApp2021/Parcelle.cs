@@ -7,9 +7,9 @@ namespace EFCoreApp2021
 {
     public class Parcelle
     {
-        [Key]
         [Required]
         public int NoParcelle { get; set; }
+        [Key]
         [Required]
         public string EGRID { get; set; }
         [Required]
@@ -20,13 +20,12 @@ namespace EFCoreApp2021
         [Required]
         public int Surface { get; set; }
 
-        [Required]
-        public int ExploitantID { get; set; }
-        public virtual User ExploitantSet { get; set; }
+       
+        public int ExploitantId { get; set; }
+        public virtual User Exploitant { get; set; }
 
-        [Required]
-        public int ProrietaireID { get; set; }
-        public virtual User PropietaireSet { get; set; }
+        public int ProrietaireId { get; set; }
+        public virtual User Propietaire { get; set; }
 
         [Required]
         public Boolean Vente { get; set;}

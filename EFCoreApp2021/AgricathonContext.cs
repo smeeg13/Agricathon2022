@@ -9,6 +9,7 @@ namespace EFCoreApp2021
         
         public DbSet<Parcelle> ParcelleSet { get; set; }
         public DbSet<User> UserSet { get; set; }
+        public DbSet<Transaction> TransactionSet {get;set;}
 
 
         // SQL Express
@@ -28,7 +29,5 @@ namespace EFCoreApp2021
            
 
         }
-
-
     }
 }
