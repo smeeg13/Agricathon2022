@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Agricathon2022;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
@@ -21,11 +22,13 @@ namespace EFCoreApp2021
         public int Surface { get; set; }
 
        
-        public int ExploitantId { get; set; }
-        public virtual User Exploitant { get; set; }
+        public int ExploitantID { get; set; }
+        public virtual Exploitant Exploitant { get; set; }
 
-        public int ProrietaireId { get; set; }
-        public virtual User Propietaire { get; set; }
+        public int ProprietaireID { get; set; }
+        public virtual Proprietaire Propietaire { get; set; }
+        public virtual ICollection<Transaction> Transactions { get; set; }
+
 
         [Required]
         public Boolean Vente { get; set;}

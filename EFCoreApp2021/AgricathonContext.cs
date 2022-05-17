@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Agricathon2022;
 using Microsoft.EntityFrameworkCore;
 
 namespace EFCoreApp2021
@@ -8,6 +9,8 @@ namespace EFCoreApp2021
     public class AgricathonContext : DbContext {
         
         public DbSet<Parcelle> ParcelleSet { get; set; }
+        public DbSet<Exploitant> ExploitantSet { get; set; }
+        public DbSet<Proprietaire> ProprietaireSet { get; set; }
         public DbSet<User> UserSet { get; set; }
         public DbSet<Transaction> TransactionSet {get;set;}
 
@@ -25,9 +28,7 @@ namespace EFCoreApp2021
         }
 
         protected override void OnModelCreating(ModelBuilder builder) {
-            
-           
-
+                 
         }
     }
 }
