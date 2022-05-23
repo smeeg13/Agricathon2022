@@ -13,13 +13,13 @@ namespace EFCoreApp2021
         public int TransactionID { get; set; }
         public int AcquereurId { get; set; }
 
-        //[ForeignKey("user")]
-        //public virtual User Acquereur { get; set; }
+        [ForeignKey("AcquereurId")]
+        public virtual User Acquereur { get; set; }
 
         //public int VendeurId { get; set; }
 
-        //[ForeignKey("vendeurid")]
-        //public virtual User Vendeur { get; set; }
+        [ForeignKey("VendeurId")]
+        public virtual User Vendeur { get; set; }
 
         public int EGRID { get; set; }
         public virtual Parcelle Parcelle { get; set; }

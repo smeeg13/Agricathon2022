@@ -11,7 +11,7 @@ namespace EFCoreApp2021
         public DbSet<Parcelle> ParcelleSet { get; set; }
         public DbSet<Exploitant> ExploitantSet { get; set; }
         public DbSet<Proprietaire> ProprietaireSet { get; set; }
-        public DbSet<User> UserSet { get; set; }
+        //public DbSet<User> UserSet { get; set; }
         public DbSet<Transaction> TransactionSet {get;set;}
 
 
@@ -27,8 +27,23 @@ namespace EFCoreApp2021
             //builder.UseLazyLoadingProxies();
         }
 
-        protected override void OnModelCreating(ModelBuilder builder) {
-                 
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+
+            //préciser / forcer les clés ici !
+
+            //builder.Entity<Parcelle>().HasOne(x => x.ExploitantID)
+            
+
+            //builder.Entity<Parcelle>()
+            //        .HasOne(e => e.Exploitant)
+            //        .WithMany()
+            //        .OnDelete(DeleteBehavior.Restrict);
+
+            //builder.Entity<Parcelle>()
+            //        .HasOne(e => e.Propietaire)
+            //        .WithMany()
+            //        .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

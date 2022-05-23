@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace EFCoreApp2021
@@ -11,7 +12,6 @@ namespace EFCoreApp2021
         [Required]
         public int NoParcelle { get; set; }
         [Key]
-        [Required]
         public string EGRID { get; set; }
         [Required]
         public string Cepage { get; set; }
@@ -21,12 +21,14 @@ namespace EFCoreApp2021
         [Required]
         public int Surface { get; set; }
 
-       
+        [ForeignKey("ExploitantId")]
         public int ExploitantID { get; set; }
         public virtual Exploitant Exploitant { get; set; }
 
+        [ForeignKey("ProprietaireId")]
         public int ProprietaireID { get; set; }
         public virtual Proprietaire Propietaire { get; set; }
+
         public virtual ICollection<Transaction> Transactions { get; set; }
 
 
