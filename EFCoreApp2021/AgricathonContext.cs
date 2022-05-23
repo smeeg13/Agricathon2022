@@ -32,18 +32,13 @@ namespace EFCoreApp2021
 
             //préciser / forcer les clés ici !
 
-            //builder.Entity<Parcelle>().HasOne(x => x.ExploitantID)
-            
+            builder.Entity<Proprietaire>().HasMany(p => p.Parcelles)
+                .WithOne(e => e.Propietaire)
+                .HasForeignKey(k => k.ProprietaireID);
 
-            //builder.Entity<Parcelle>()
-            //        .HasOne(e => e.Exploitant)
-            //        .WithMany()
-            //        .OnDelete(DeleteBehavior.Restrict);
-
-            //builder.Entity<Parcelle>()
-            //        .HasOne(e => e.Propietaire)
-            //        .WithMany()
-            //        .OnDelete(DeleteBehavior.Restrict);
+            builder.Entity<Exploitant>().HasMany(a => a.Parcelles)
+                .WithOne(b => b.Exploitant)
+                .HasForeignKey(c => c.ExploitantID).OnDelete(DeleteBehavior.Restrict);
         }
     }
 }
