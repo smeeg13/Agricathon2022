@@ -1,0 +1,86 @@
+﻿@model EFCoreApp2021.Parcelle
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Parcelle</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NoParcelle" class="control-label"></label>
+                <input asp-for="NoParcelle" class="form-control" />
+                <span asp-validation-for="NoParcelle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EGRID" class="control-label"></label>
+                <input asp-for="EGRID" class="form-control" />
+                <span asp-validation-for="EGRID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cepage" class="control-label"></label>
+                <input asp-for="Cepage" class="form-control" />
+                <span asp-validation-for="Cepage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Surface" class="control-label"></label>
+                <input asp-for="Surface" class="form-control" />
+                <span asp-validation-for="Surface" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ExploitantID" class="control-label"></label>
+                <select asp-for="ExploitantID" class ="form-control" asp-items="ViewBag.ExploitantID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProprietaireID" class="control-label"></label>
+                <select asp-for="ProprietaireID" class ="form-control" asp-items="ViewBag.ProprietaireID"></select>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Vente" /> @Html.DisplayNameFor(model => model.Vente)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Location" /> @Html.DisplayNameFor(model => model.Location)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Prix" class="control-label"></label>
+                <input asp-for="Prix" class="form-control" />
+                <span asp-validation-for="Prix" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InfosSupp" class="control-label"></label>
+                <input asp-for="InfosSupp" class="form-control" />
+                <span asp-validation-for="InfosSupp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Age" class="control-label"></label>
+                <input asp-for="Age" class="form-control" />
+                <span asp-validation-for="Age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
