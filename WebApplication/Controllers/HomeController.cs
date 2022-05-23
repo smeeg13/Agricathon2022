@@ -28,6 +28,12 @@ namespace WebApplication.Controllers
             return View();
         }
 
+        public IActionResult Annonces()
+        {
+            return View();
+        }
+
+
         public IActionResult Contact()
         {
             return View();
