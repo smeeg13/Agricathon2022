@@ -16,8 +16,7 @@ namespace EFCoreApp2021
 
 
         // SQL Express
-        public static string ConnectionString { get; set; } = @"Server=(localDB)\MSSQLLocalDB;Database=AgricathonParcelles2022;"+
-                                                  "Trusted_Connection=True;App=Agricathon2022;MultipleActiveResultSets=true";
+        public static string ConnectionString { get; set; } = "Data Source=153.109.124.35;Initial Catalog=AgricathonParcelles2022;User ID=6231db;Password=Pwd46231.;Pooling=False";
 
         public AgricathonContext() { }
 
