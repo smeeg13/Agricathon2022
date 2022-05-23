@@ -27,6 +27,7 @@ namespace WebApplication
         {
             services.AddControllersWithViews();
             services.AddDbContext<AgricathonContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddSession();
 
         }
 
@@ -45,7 +46,7 @@ namespace WebApplication
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseSession();
             app.UseRouting();
 
             app.UseAuthorization();
