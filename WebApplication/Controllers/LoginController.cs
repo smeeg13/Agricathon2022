@@ -68,10 +68,10 @@ namespace WebApplication.Controllers
                     }
 
                 
+            return RedirectToAction("Index", "Home");
 
             }
         
-            return RedirectToAction("Index", "Home");
     }
 
         public IActionResult Register()
