@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Agricathon2022;
 using EFCoreApp2021;
+using Microsoft.AspNetCore.Http;
 
 namespace WebApplication.Controllers
 {
@@ -22,7 +23,16 @@ namespace WebApplication.Controllers
         // GET: Proprietaires
         public async Task<IActionResult> Index()
         {
+
+            if (HttpContext.Session.GetInt32("UserID") == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+            else
+            {
             return View(await _context.ProprietaireSet.ToListAsync());
+
+            }
         }
 
         // GET: Proprietaires/Details/5
