@@ -44,33 +44,44 @@ namespace WebApplication.Controllers
                         }
                     }
 
-                    if (user != null)
+                List<Exploitant> usersExploitant = _context.ExploitantSet.ToList();
+
+                for (int i = 0; i < usersExploitant.Count(); i++)
+                {
+                    if (usersExploitant[i].Email.Equals(login.Email) && usersExploitant[i].Password.Equals(login.Password))
+                    {
+                        user = usersExploitant[i];
+                    }
+                }
+
+                if (user != null)
                     {
                             //Redirect to customer page if not an Proprio
                             if (user.EstPropriétaire)
                             {
                                 HttpContext.Session.SetInt32("UserID", user.UserID);
-                                return RedirectToAction("Index", "Proprietaires");
+                                return RedirectToAction("Details", "Proprietaires");
                             }
                             //Redirect to Exploitant
                             if (user.EstExploitant)
                             {
                                     HttpContext.Session.SetInt32("UserID", user.UserID);
-                                    return RedirectToAction("Index", "Exploitants");
+                                    
+                        return RedirectToAction("Index", "Exploitants");
                             }
 
 
                             ModelState.AddModelError(string.Empty, "Utilisateur ou mot de passe invalide");
 
-                            HttpContext.Session.SetInt32("UserID", user.UserID);
                             return RedirectToAction("Index", "Home");
 
                     }
 
                 
-            return RedirectToAction("Index", "Home");
 
             }
+            return RedirectToAction("Index", "Home");
+
         
     }
 
