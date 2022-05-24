@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EFCoreApp2021;
+using Microsoft.AspNetCore.Http;
 
 namespace WebApplication.Controllers
 {
@@ -21,6 +22,11 @@ namespace WebApplication.Controllers
         // GET: Transactions
         public async Task<IActionResult> Index()
         {
+
+            if (HttpContext.Session.GetInt32("UserID") == null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
             var agricathonContext = _context.TransactionSet.Include(t => t.Acquereur);
             return View(await agricathonContext.ToListAsync());
         }
@@ -35,6 +41,7 @@ namespace WebApplication.Controllers
 
             var transaction = await _context.TransactionSet
                 .Include(t => t.Acquereur)
+                .Include(v => v.Vendeur)
                 .FirstOrDefaultAsync(m => m.TransactionID == id);
             if (transaction == null)
             {
