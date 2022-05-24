@@ -55,6 +55,7 @@ namespace WebApplication.Controllers
         public IActionResult Create()
         {
             ViewData["AcquereurId"] = new SelectList(_context.Set<User>(), "UserID", "Address");
+            ViewData["VendeurId"] = new SelectList(_context.Set<User>(), "UserID", "Address");
             return View();
         }
 
