@@ -10,58 +10,58 @@
     <h4>Proprietaire</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Firstname)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Firstname)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Lastname)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Lastname)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.NoExploitant)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.NoExploitant)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.EstExploitant)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.EstExploitant)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.EstPropriétaire)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.EstPropriétaire)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.DateNaissance)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.DateNaissance)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Address)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Address)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Email)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Email)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Password)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Password)
         </dd>
     </dl>
@@ -70,3 +70,91 @@
     <a asp-action="Edit" asp-route-id="@Model.UserID">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Parcelles.ElementAtOrDefault(0).NoParcelle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parcelles.ElementAtOrDefault(0).Cepage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parcelles.ElementAtOrDefault(0).Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parcelles.ElementAtOrDefault(0).Surface)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parcelles.ElementAtOrDefault(0).Exploitant)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parcelles.ElementAtOrDefault(0).Propietaire)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parcelles.ElementAtOrDefault(0).Vente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parcelles.ElementAtOrDefault(0).Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parcelles.ElementAtOrDefault(0).Prix)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parcelles.ElementAtOrDefault(0).InfosSupp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Parcelles.ElementAtOrDefault(0).Age)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Parcelles)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NoParcelle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cepage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Surface)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Exploitant.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Propietaire.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Vente)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Location)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prix)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InfosSupp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Age)
+                </td>
+                <td>
+                    <a asp-controller="Parcelles" asp-action="Edit" asp-route-id="@item.EGRID">Edit</a> |
+                    <a asp-controller="Parcelles" asp-action="Details" asp-route-id="@item.EGRID">Details</a> |
+                    <a asp-controller="Parcelles" asp-action="Delete" asp-route-id="@item.EGRID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

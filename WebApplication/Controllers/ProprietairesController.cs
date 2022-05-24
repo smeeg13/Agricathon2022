@@ -38,13 +38,31 @@ namespace WebApplication.Controllers
         // GET: Proprietaires/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
+
+            if (HttpContext.Session.GetInt32("UserID") == null)
             {
-                return NotFound();
+                return RedirectToAction("Login", "Login");
+            }
+            else
+            {
+                id =(int) HttpContext.Session.GetInt32("UserID");
             }
 
             var proprietaire = await _context.ProprietaireSet
                 .FirstOrDefaultAsync(m => m.UserID == id);
+
+            List<Parcelle> List = _context.ParcelleSet.ToList();
+
+            List<Parcelle> listParcelle = new List<Parcelle>();
+            for (int i =0; i<List.Count(); i++)
+            {
+                if (List[i].ProprietaireID == id)
+                {
+                    listParcelle.Add(List[i]);
+                }
+            }
+
+            proprietaire.Parcelles = listParcelle;
             if (proprietaire == null)
             {
                 return NotFound();
